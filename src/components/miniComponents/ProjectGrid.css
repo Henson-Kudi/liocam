@@ -1,0 +1,60 @@
+.project-grid-item {
+  /* margin: 1rem; */
+  position: relative;
+  border-radius: 0.5rem;
+  color: black;
+  width: 20rem;
+  height: 20rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.project-grid-item .project-grid-item-img-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.project-grid-item-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.project-grid-item .description-text {
+  position: absolute;
+  bottom: -3rem;
+  opacity: 0;
+  left: 0;
+  padding: 0.5rem;
+  background-color: #fff;
+  max-height: 50%;
+  overflow: hidden;
+  width: 100%;
+  transition: all 300ms ease;
+}
+
+.project-grid-item:hover .description-text {
+  bottom: 0rem;
+  opacity: 1;
+}
+
+.project-grid-item .project-icon {
+  position: absolute;
+  right: 0.5rem;
+  bottom: -3rem;
+  transition: all 300ms ease;
+  opacity: 0;
+}
+
+.project-grid-item:hover .project-icon {
+  bottom: 2rem;
+  opacity: 1;
+}
+
+.fas.fa-share-square {
+  color: rgb(27, 116, 158);
+}

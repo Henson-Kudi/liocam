@@ -1,0 +1,44 @@
+.nav {
+  background-color: rgb(27, 116, 158);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-section {
+  height: 9rem;
+  width: 15%;
+  text-align: center;
+}
+
+.logo-section img {
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.nav-links {
+  width: 75%;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 2rem;
+}
+
+.nav-links a {
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.language-section {
+  width: 5%;
+  text-align: left;
+  color: #fff;
+}
