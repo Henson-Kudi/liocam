@@ -1,5 +1,5 @@
 .nav {
-  background-color: rgb(27, 116, 158);
+  background-color: var(--main-color);
   position: sticky;
   top: 0;
   left: 0;
@@ -32,13 +32,106 @@
   font-size: 2rem;
 }
 
+.nav-links .close-menu {
+  color: #fff;
+  text-align: right;
+  display: none;
+}
+
 .nav-links a {
   color: #fff;
   padding: 0.5rem;
+}
+
+.nav-container .hamburger-menu {
+  color: #fff;
+  position: absolute;
+  top: 100%;
+  margin: 0.1rem 0.5rem;
+  padding: 0.5rem;
+  display: none;
+  width: max-content;
+  background-color: var(--main-color);
+  border-radius: 0.5rem;
+}
+
+.address-small-screen {
+  color: #fff;
+  font-weight: 300;
+  display: none;
+}
+
+.address-small-screen a {
+  color: #fff;
+}
+
+.address-small-screen .call {
+  margin: 1rem;
+}
+
+.address-small-screen .request-call {
+  margin: 0.5rem;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .language-section {
   width: 5%;
   text-align: left;
   color: #fff;
+}
+
+@media screen and (max-width: 850px) {
+  .address-small-screen {
+    display: block;
+  }
+
+  .nav-links {
+    display: block;
+    text-align: left;
+    width: 40%;
+    position: absolute;
+    top: 100%;
+    padding: 1rem;
+    margin-top: 0.1rem;
+    background-color: var(--main-color);
+    height: 100vh;
+    overflow-y: auto;
+    transition: left 300ms ease;
+    font-size: 1.5rem;
+  }
+
+  .nav-links .close-menu {
+    display: block;
+  }
+
+  .nav-links .link {
+    padding: 0.5rem;
+  }
+
+  .nav-container .hamburger-menu {
+    display: block;
+  }
+
+  .language-section {
+    width: unset;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .nav-links {
+    width: 50%;
+    font-size: 1.5rem;
+  }
+
+  .logo-section {
+    height: 7rem;
+  }
+
+  .logo-section img {
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
 }

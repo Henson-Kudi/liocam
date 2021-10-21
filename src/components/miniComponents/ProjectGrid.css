@@ -58,3 +58,17 @@
 .fas.fa-share-square {
   color: rgb(27, 116, 158);
 }
+
+@media screen and (max-width: 850px) {
+  .project-grid-item {
+    width: 25rem;
+    height: 25rem;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .project-grid-item {
+    width: 20rem;
+    height: 20rem;
+  }
+}

@@ -36,6 +36,8 @@ function Homepage() {
 
     return (
         <div className='home-page'>
+            {/* ________________________________HERO SECTION_____________________________________ */}
+
             <section className="hero-image-container smoth-scroll">
             <i className="fas fa-chevron-left fa-lg icon icon-left" onClick={prevSlide}></i>
             <i className="fas fa-chevron-right fa-lg icon icon-right" onClick={nextSlide}></i>
@@ -50,8 +52,6 @@ function Homepage() {
                 ))
             }
 
-            
-
                 <article className="hero-text-section">
                     <div className="hero-text-container">
                         <h1 className='hero-heading'>Some Hero Text</h1>
@@ -64,7 +64,11 @@ function Homepage() {
                 
             </section>
 
+            {/* ____________________________END OF HERO SECTION_________________________________ */}
+
             <Services className="smoth-scroll"/>
+
+            {/* __________________PROJECTS_____________________ */}
 
             <section className="recent-projects">
                 <div className="recent-plans">
@@ -102,6 +106,11 @@ function Homepage() {
                 </div>
             </section>
 
+            {/* _____________________________________END OF PROJECTS________________________________ */}
+
+
+            {/* _____________________________________HOW WE WORK________________________________ */}
+
             <section className="how-we-work">
                 <h1>How We Work</h1>
 
@@ -127,6 +136,10 @@ function Homepage() {
                     </div>
                 </div>
             </section>
+
+            {/* _____________________________________END OF HOW WE WORK________________________________ */}
+
+            {/* _____________________________________WHY CHOSE US________________________________ */}
 
             <section className="why-chose-us">
                 <div className="left-section">
@@ -190,6 +203,7 @@ function Homepage() {
                     </form>
                 </div>
             </section>
+            {/* _____________________________________END OF WHY CHOSE US________________________________ */}
         </div>
     )
 }
