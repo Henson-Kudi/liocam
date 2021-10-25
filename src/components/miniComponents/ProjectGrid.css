@@ -38,13 +38,13 @@
 }
 
 .project-grid-item:hover .description-text {
-  bottom: 0rem;
+  bottom: 0.75rem;
   opacity: 1;
 }
 
 .project-grid-item .project-icon {
   position: absolute;
-  right: 0.5rem;
+  right: 2rem;
   bottom: -3rem;
   transition: all 300ms ease;
   opacity: 0;

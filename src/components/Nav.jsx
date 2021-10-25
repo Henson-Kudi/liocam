@@ -1,11 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect,  } from 'react'
 import { Link } from 'react-router-dom'
+import ContactForm from './miniComponents/ContactForm'
 import logo from '../images/liocam-logo.jpg'
 import './Nav.css'
 
 function Nav() {
     const wrapperRef = useRef(null)
     const [navLink, setNavLink] = useState(window.innerWidth <= 510 ? '-50%' : '-40%')
+
+    const [requestCall, setRequestCall] = useState(false)
+
     const navStyles = {
         left: navLink
     }
@@ -24,17 +28,13 @@ function Nav() {
         return ()=>{
             document.removeEventListener('mousedown', handleClickOutside);
         }
-    }, [])
+    })
 
     function handleClickOutside(e){
         const {current : wrap} = wrapperRef;
         if(wrap && !wrap.contains(e.target)){
             closeNav();
         }
-    }
-
-    const requestCall = ()=>{
-        alert('Call request...')
     }
 
     return (
@@ -54,30 +54,32 @@ function Nav() {
                         <i className="fas fa-phone-alt fa-md"></i>
                         <span className='call'>+1234567890</span>
                     </a>
-                    <span className='request-call' onClick={requestCall}>Request Call</span></p>
+                    <span className='request-call' onClick={()=>[
+                        setRequestCall(true)
+                    ]}>Request Call</span></p>
                 </div>
 
                 <div className="nav-links" style={navStyles} ref={wrapperRef}>
                     <div className="close-menu">
                         <i className="fas fa-times fa-lg" onClick={closeNav}></i>
                     </div>
-                    <div className="link"><Link to='/'>
+                    <div className="link"><Link to='/' onClick={closeNav}>
                         Home
                     </Link></div>
-                    <div className="link"><Link to='/bungalow-designs'>
+                    <div className='link'><Link to='/bungalow-designs' onClick={closeNav}>
                         Bungalow
                     </Link></div>
-                    <div className="link"><Link to='/duplex-designs'>
+                    <div className="link"><Link to='/duplex-designs' onClick={closeNav}>
                         Duplex
                     </Link></div>
-                    <div className="link"><Link to='/apartment-designs'>
+                    <div className="link"><Link to='/apartment-designs' onClick={closeNav}>
                         Apartments
                     </Link></div>
-                    <div className="link"><Link to='/liocam-store'>
-                        Store
-                    </Link></div>
-                    <div className="link"><Link to='/other-designs'>
+                    <div className="link"><Link to='/other-designs' onClick={closeNav}>
                         Other Designs
+                    </Link></div>
+                    <div className="link"><Link to='/liocam-store' onClick={closeNav}>
+                        Store
                     </Link></div>
                 </div>
 
@@ -90,7 +92,17 @@ function Nav() {
                         <span>ENG</span>
                     </div>
                 </div>
+                
             </div>
+            {
+                requestCall &&
+                <div className="gold-order">
+                    <ContactForm
+                        showCan={true}
+                        cancel={()=>{setRequestCall(false)}}
+                    />
+                </div>
+            }
         </div>
     )
 }

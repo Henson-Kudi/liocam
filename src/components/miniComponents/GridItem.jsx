@@ -3,7 +3,7 @@ import './GridItem.css'
 
 function GridItem({imgSrc, title, description}) {
     return (
-        <div className="grid-item">
+        <div className="grid-item" data-aos='fade-left'>
             <div className="grid-item-img-container">
                 <img src={imgSrc} alt="" />
             </div>

@@ -1,0 +1,44 @@
+.order-details-cont {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-details-cont .order-details {
+  width: max-content;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  max-width: 90vw;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.order-details-form-container .form-control {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
+  margin: 0.5rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+.order-details-form-container .form-control input {
+  padding: 1rem;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 480px) {
+  .order-details-form-container .form-control {
+    display: block;
+  }
+}

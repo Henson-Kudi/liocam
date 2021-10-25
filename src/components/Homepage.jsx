@@ -1,10 +1,14 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useEffect} from 'react'
+import 'aos/dist/aos.css'
 import './Homepage.css'
 import Services from './Services'
 import ProjectGrid from './miniComponents/ProjectGrid'
+import ContactForm from './miniComponents/ContactForm'
+import WhyChoseUs from './miniComponents/WhyChoseUs'
 import slide1 from '../images/slide1.jpg'
 import slide2 from '../images/slide2.jpg'
 import slide3 from '../images/slide3.jpg'
+
 
 // TO BE REMOVED IMPORTS
 import {projects} from '../samplesToDelete/grid-data'
@@ -13,11 +17,9 @@ import {projects} from '../samplesToDelete/grid-data'
 
 
 function Homepage() {
-    const formRef = useRef(null)
     const [currentImg, setCurrentImg] = useState(0)
     const images = [slide1, slide2, slide3]
     const length = images.length
-
     const prevSlide = ()=>{
         setCurrentImg(currentImg === 0 ? length - 1 : currentImg - 1)
     }
@@ -26,17 +28,14 @@ function Homepage() {
         setCurrentImg(currentImg === length - 1 ? 0 : currentImg + 1)
     }
 
-    const handleSubmit = (e)=>{
-        e.preventDefault()
-        alert('Form Submited...')
-        e.target.reset()
-    }
+
+    // initial animation on scroll (aos)
 
 
 
     return (
         <div className='home-page'>
-            {/* ________________________________HERO SECTION_____________________________________ */}
+            {/* ___________________________HERO SECTION_____________________________ */}
 
             <section className="hero-image-container smoth-scroll">
             <i className="fas fa-chevron-left fa-lg icon icon-left" onClick={prevSlide}></i>
@@ -66,7 +65,7 @@ function Homepage() {
 
             {/* ____________________________END OF HERO SECTION_________________________________ */}
 
-            <Services className="smoth-scroll"/>
+            <Services className="smoth-scroll" />
 
             {/* __________________PROJECTS_____________________ */}
 
@@ -76,34 +75,37 @@ function Homepage() {
                     
                     <div className="recent-projects-list">
                         {
-                            projects?.map((item, i) =>(
+                            projects?.sort((a, b)=> new Date(b.date) > new Date(a.date)).slice(0, 12).map((item, i) =>(
                                 <ProjectGrid
-                                    title={item.title}
-                                    imgSrc = {item.imgSrc}
+                                    key={item.id}
+                                    title={item.name}
+                                    imgSrc = {item.images[0]}
                                     price = {item.price}
-                                    link = {item.id}
+                                    link = {`designs/${item.category}/${item.id}`}
                                 />
                             ))
                         }
                     </div>
                 </div>
 
-                <div className="recent-plans">
+                {/* <div className="recent-plans">
                     <div className="heading"><span></span> <h3>Recent Builds</h3> <span></span></div>
                     
                     <div className="recent-projects-list">
                         {
                             projects?.map((item, i) =>(
                                 <ProjectGrid
-                                    title={item.title}
-                                    imgSrc = {item.imgSrc}
+                                    aos='fade-up'
+                                    key={item.id}
+                                    title={item.name}
+                                    imgSrc = {item.images[0]}
                                     price = {item.price}
-                                    link = {item.id}
+                                    link = {`designs/${item.id}`}
                                 />
                             ))
                         }
                     </div>
-                </div>
+                </div> */}
             </section>
 
             {/* _____________________________________END OF PROJECTS________________________________ */}
@@ -115,22 +117,22 @@ function Homepage() {
                 <h1>How We Work</h1>
 
                 <div className="how-we-work-container">
-                    <div className="schedule">
+                    <div className="schedule" data-aos='flip-right'>
                         <i className="fas fa-calendar-alt work-icon"></i>
                         <p>Schedule a <br/> meeting</p>
                     </div>
 
-                    <div className="schedule">
+                    <div className="schedule" data-aos='flip-down'>
                         <i className="fas fa-users work-icon"></i>
                         <p>Discuss Your <br/> Requirements</p>
                     </div>
 
-                    <div className="schedule">
+                    <div className="schedule" data-aos='flip-up'>
                         <i className="fas fa-edit work-icon"></i>
                         <p>Let Us Do The <br/> Design Work</p>
                     </div>
 
-                    <div className="schedule">
+                    <div className="schedule" data-aos='flip-left' data-aos-easing="ease-out-cubic">
                         <i className="fas fa-home work-icon"></i>
                         <p>Let Us COnstruct. <br/> Based On Agreement</p>
                     </div>
@@ -142,65 +144,10 @@ function Homepage() {
             {/* _____________________________________WHY CHOSE US________________________________ */}
 
             <section className="why-chose-us">
-                <div className="left-section">
-                    <h2>Why Chose Us</h2>
-                    <div className="chose-us-options-container">
-                        <div>
-                            <i className="fas fa-edit chose-icon"></i>
-                            <p>Best Designs</p>
-                        </div>
-
-                        <div>
-                            <i className="fas fa-thumbs-up chose-icon"></i>
-                            <p>100% flexible</p>
-                        </div>
-
-                        <div>
-                            <i className="fas fa-calendar-alt  chose-icon"></i>
-                            <p>Accurate Timeline</p>
-                        </div>
-
-                        <div>
-                            <i className="fas fa-dollar-sign chose-icon"></i>
-                            <p>Very Affordable</p>
-                        </div>
-                        
-                    </div>
-                </div>
+                <WhyChoseUs/>
 
                 <div className="right-section">
-                    <h2>Reach To Us</h2>
-                    <form ref={formRef} onSubmit={handleSubmit}>
-                        <div className="reach-to-us-form-container">
-                            <div className="name-cont form-control">
-                                <label htmlFor="name">Name:</label>
-                                <input type="text" name="name" id="name" placeholder="Enter Full Name" />
-                            </div>
-
-                            <div className="email-cont form-control">
-                                <label htmlFor="email">Email Address:</label>
-                                <input type="email" name="email" id="email" placeholder='Enter Email Address' />
-                            </div>
-
-                            <div className="contact-cont form-control">
-                                <label htmlFor="contact">Contact:</label>
-                                <input type="tel" name="contact" id="contact" placeholder="Enter Contact" />
-                            </div>
-
-                            <div className="address-cont form-control">
-                                <label htmlFor="address">Address:</label>
-                                <input type="text" name="address" id="address" placeholder='Enter Address' />
-                            </div>
-
-                            <div className="message-cont">
-                                <textarea rows='5' name="message" placeholder='Message' />
-                            </div>
-
-                            <div className="btnSub-cont">
-                                <input type="submit" value='Submit' className='btnSub' />
-                            </div>
-                        </div>
-                    </form>
+                    <ContactForm/>
                 </div>
             </section>
             {/* _____________________________________END OF WHY CHOSE US________________________________ */}

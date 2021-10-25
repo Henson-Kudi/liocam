@@ -22,17 +22,17 @@ function Footer() {
                     </div>
 
                     <div className="grid-control">
-                        <i class="fas fa-phone-alt footer-icon"></i>
+                        <i className="fas fa-phone-alt footer-icon"></i>
                         <p>+123456789</p>
                     </div>
 
                     <div className="grid-control">
-                        <i class="fab fa-whatsapp footer-icon"></i>
+                        <i className="fab fa-whatsapp footer-icon"></i>
                         <p>+123456789</p>
                     </div>
 
                     <div className="grid-control">
-                        <i class="fas fa-map-marker-alt footer-icon"></i>
+                        <i className="fas fa-map-marker-alt footer-icon"></i>
                         <div>
                             <p>abc street, xyz quarter</p>
                             <p>Douala,  Cameroon</p>
@@ -61,7 +61,7 @@ function Footer() {
                             <a href="facebook.com" target='_blank'>
                                 <i className="fab fa-facebook footer-icon"></i>
                             </a>
-                            <p><a href="https://facebook.com" target='_blank'>
+                            <p><a href="https://facebook.com" target='_blank' rel="noreferrer">
                                 Facebook
                             </a></p>
                         </div>
@@ -70,13 +70,13 @@ function Footer() {
                             <a href="instagram.com" target='_blank'>
                                 <i className="fab fa-instagram footer-icon"></i>
                             </a>
-                            <p><a href="instagram.com" target='_blank'>
+                            <p><a href="instagram.com" target='_blank' rel="noreferrer">
                                 Instagram
                             </a></p>
                         </div>
 
                         <div className="grid-control">
-                            <a href="twitter.com" target='_blank'>
+                            <a href="twitter.com" target='_blank' rel="noreferrer">
                                 <i className="fab fa-twitter footer-icon"></i>
                             </a>
                             <p><a href="twitter.com" target='_blank'>
@@ -85,10 +85,10 @@ function Footer() {
                         </div>
 
                         <div className="grid-control">
-                            <a href="youtube.com" target='_blank'>
+                            <a href="youtube.com" target='_blank' rel="noreferrer">
                                 <i className="fab fa-youtube footer-icon"></i>
                             </a>
-                            <p><a href="youtube.com" target='_blank'>
+                            <p><a href="youtube.com" target='_blank' rel="noreferrer">
                                 Youtube
                             </a></p>
                         </div>

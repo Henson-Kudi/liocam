@@ -6,18 +6,19 @@ import './Services.css'
 import {gridData} from '../samplesToDelete/grid-data'
 // END OF TO BE REMOVED IMPORTS
 
-function Services() {
+function Services({bgc}) {
     return (
         <div>
-            <section className="services-section">
+            <section className="services-section" style={{ backgroundColor : bgc}}>
                 <h1 className="hero-heading">
                     Our Services
                 </h1>
 
                 <div className="services">
                     {
-                        gridData?.map(item => (
+                        gridData?.map((item, i) => (
                             <GridItem
+                                key={i}
                                 title={item.title}
                                 description={item.description}
                                 imgSrc={item.url}
