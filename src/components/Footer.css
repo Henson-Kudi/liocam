@@ -51,6 +51,10 @@
   font-weight: 300;
 }
 
+.sitemaps p {
+  margin: 1rem;
+}
+
 .sitemaps > p > a,
 .social-media a .footer-icon {
   color: #fff;

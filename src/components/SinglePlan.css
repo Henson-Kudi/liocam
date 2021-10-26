@@ -232,3 +232,32 @@
     font-size: 3rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .plan-top-left {
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .single-plan-middle .features .feature i.fas {
+    font-size: 2.5rem;
+  }
+
+  .single-plan-middle .features .feature {
+    font-size: 1.2rem;
+  }
+
+  .order-options {
+    display: block;
+  }
+
+  .gold-order {
+    align-items: start;
+  }
+
+  .gold-order .contact-us {
+    width: 90vw;
+    margin: 3rem auto 0;
+  }
+}

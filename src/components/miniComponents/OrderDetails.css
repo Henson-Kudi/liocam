@@ -41,4 +41,13 @@
   .order-details-form-container .form-control {
     display: block;
   }
+
+  .order-details-cont {
+    align-items: start;
+  }
+
+  .order-details-cont .order-details {
+    margin: 3rem auto 0;
+    overflow: scroll;
+  }
 }

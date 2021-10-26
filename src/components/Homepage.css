@@ -154,10 +154,6 @@
   border-left: 0.2px solid rgb(27, 116, 158);
 }
 
-
-
-
-
 @media screen and (max-width: 799px) {
   .hero-heading {
     font-weight: 600;
@@ -196,6 +192,10 @@
     padding: 1rem;
   }
 
+  .why-chose-us {
+    display: block;
+  }
+
   .chose-icon {
     font-size: 3rem;
   }
@@ -214,6 +214,22 @@
   }
 
   .hero-image-container {
-    height: 80vh;
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .chose-icon {
+    font-size: 2.5rem;
+  }
+
+  .chose-us-options-container,
+  .how-we-work .how-we-work-container {
+    font-size: 1.2rem;
+  }
+
+  .how-we-work .how-we-work-container .work-icon {
+    font-size: 2.5rem;
+    padding: 1rem;
   }
 }

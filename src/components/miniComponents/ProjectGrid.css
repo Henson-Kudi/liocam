@@ -72,3 +72,10 @@
     height: 20rem;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .project-grid-item {
+    width: 15rem;
+    height: 15rem;
+  }
+}

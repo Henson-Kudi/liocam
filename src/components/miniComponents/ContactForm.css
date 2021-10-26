@@ -5,7 +5,7 @@
 
 .reach-to-us-form-container .form-control {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   justify-content: center;
   text-align-last: left;
   align-items: center;
@@ -16,6 +16,7 @@
   padding: 1rem;
   border: 0.1px solid black;
   border-radius: 0.5rem;
+  width: 100%;
 }
 .message-cont,
 .message-cont textarea {
@@ -79,13 +80,15 @@
     padding: 0;
   }
 
-  .reach-to-us-form-container .form-control {
-    display: block;
-  }
-
   .btnSub-cont .btnSub,
   .btnSub-cont .btnCan {
     padding: 0.5rem;
     font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .reach-to-us-form-container .form-control {
+    display: block;
   }
 }
