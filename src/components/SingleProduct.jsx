@@ -10,7 +10,6 @@ function SingleProduct() {
     const [currentImg, setCurrentImg] = useState(0)
     const [makeOrder, setMakeOrder] = useState(false)
     const [orderData, setOrderData] = useState({})
-    const [goldOrder, setGoldOrder] = useState(false)
 
     const length = data[0]?.images?.length
     const prevSlide = ()=>{

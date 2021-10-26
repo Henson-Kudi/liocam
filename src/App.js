@@ -15,6 +15,7 @@ import AboutUs from './components/AboutUs';
 import Services from './components/Services';
 import ContactUs from './components/ContactUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import SingleService from './components/SingleService';
 
 function App() {
 
@@ -55,6 +56,10 @@ function App() {
 
             <Route path='/our-services' exact>
               <Services bgc='rgba(0, 0, 0, 0.2)'/>
+            </Route>
+
+            <Route path='/our-services/:title' exact>
+              <SingleService/>
             </Route>
 
             <Route path='/contact-us' exact>

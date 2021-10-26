@@ -6,7 +6,7 @@ function ContactUs() {
     return (
         <div className='ContactUs'>
             <div className="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14525.618019295995!2d54.370762019775384!3d24.4714376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sae!4v1635190198591!5m2!1sen!2sae" width="100%" height="300vh" style={{border:0}} allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14525.618019295995!2d54.370762019775384!3d24.4714376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sae!4v1635190198591!5m2!1sen!2sae" width="100%" height="300vh" style={{border:0}} allowfullscreen="" loading="lazy" title='our location'></iframe>
             </div>
 
             <div className="why-chose-us">

@@ -22,6 +22,7 @@ function Services({bgc}) {
                                 title={item.title}
                                 description={item.description}
                                 imgSrc={item.url}
+                                link={item.title}
                             />
                         ))
                     }
