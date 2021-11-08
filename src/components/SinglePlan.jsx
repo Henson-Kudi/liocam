@@ -5,10 +5,12 @@ import ContactForm from './miniComponents/ContactForm'
 import WhyChoseUs from './miniComponents/WhyChoseUs'
 import OrderDetails from './miniComponents/OrderDetails'
 import './SinglePlan.css'
+import useFetch from '../customHooks/useFetch'
 
 function SinglePlan() {
+    const {plans:projects} = useFetch()
     const {id} = useParams()
-    const data = projects?.filter(item => item.id === Number(id))
+    const data = projects?.filter(item => item.id === id)
     const [currentImg, setCurrentImg] = useState(0)
     const [makeOrder, setMakeOrder] = useState(false)
     const [orderData, setOrderData] = useState({})

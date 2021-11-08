@@ -1,8 +1,10 @@
 import React from 'react'
+import useFetch from '../customHooks/useFetch';
 import {projects} from '../samplesToDelete/grid-data'
 import ProjectGrid from './miniComponents/ProjectGrid';
 
 function Duplex() {
+    const {plans:projects} = useFetch('plans')
 
     const bungalows = projects?.filter(item => item.category === 'duplex')
 

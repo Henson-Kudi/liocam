@@ -1,8 +1,10 @@
 import React from 'react'
+import useFetch from '../customHooks/useFetch';
 import {projects} from '../samplesToDelete/grid-data'
 import ProjectGrid from './miniComponents/ProjectGrid';
 
 function Apartment() {
+    const {plans:projects} = useFetch()
 
     const bungalows = projects?.filter(item => item.category === 'apartment')
 

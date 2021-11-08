@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 import { useParams } from 'react-router-dom'
+import useFetch from '../customHooks/useFetch'
 import {products} from '../samplesToDelete/grid-data'
 import OrderDetails from './miniComponents/OrderDetails'
 import ProjectGrid from './miniComponents/ProjectGrid'
 
 function SingleProduct() {
+    const {products:products} = useFetch()
     const {id} = useParams()
-    const data = products?.filter(item => item.id === Number(id))
+    const data = products?.filter(item => item.id === id)
     const [currentImg, setCurrentImg] = useState(0)
     const [makeOrder, setMakeOrder] = useState(false)
     const [orderData, setOrderData] = useState({})
@@ -44,14 +46,18 @@ function SingleProduct() {
                     }
                 </div>
                 <div className="plan-top-right">
-                    <h3>{data[0]?.name}</h3>
+                    <h3>{data[0]?.productName}</h3>
                     <p>
                         {data[0]?.description}
+                    </p>
+                    <p style={{marginTop: '1rem', color: 'var(--main-color)'}}>
+                        <span style={{margin : '1rem'}}>Cost : </span>
+                        <span>{data[0]?.price}</span>
                     </p>
                     <div className="btnSub-cont">
                         <input type="button" value="Place Order" className="btnSub" onClick={()=>{
                             showMakeOrder({
-                                productName : data[0]?.name,
+                                productName : data[0]?.productName,
                                 productPrice : data[0]?.price,
                                 productId : data[0]?.id,
                                 productCategory : 'N/A',
@@ -72,7 +78,7 @@ function SingleProduct() {
                         products?.filter(item => item.id !== Number(id)).slice(0, 10).map(product =>(
                             <ProjectGrid
                                 price={product.price}
-                                title={product.name.slice(0, 15) + '...'}
+                                title={product.name?.slice(0, 15) + '...'}
                                 link={`liocam-store/${product.id}`}
                                 imgSrc={product.images[0]}
                             >

@@ -5,6 +5,7 @@ import Services from './Services'
 import ProjectGrid from './miniComponents/ProjectGrid'
 import ContactForm from './miniComponents/ContactForm'
 import WhyChoseUs from './miniComponents/WhyChoseUs'
+import useFetch from '../customHooks/useFetch'
 import slide1 from '../images/slide1.jpg'
 import slide2 from '../images/slide2.jpg'
 import slide3 from '../images/slide3.jpg'
@@ -12,11 +13,16 @@ import slide3 from '../images/slide3.jpg'
 
 // TO BE REMOVED IMPORTS
 import {projects} from '../samplesToDelete/grid-data'
+import OrderDetails from './miniComponents/OrderDetails'
 // END OF TO BE REMOVED IMPORTS
 
 
 
 function Homepage() {
+    const [makeOrder, setMakeOrder] = useState(false)
+    const [orderData, setOrderData] = useState({})
+    const {plans:projects} = useFetch()
+    const {products} = useFetch()
     const [currentImg, setCurrentImg] = useState(0)
     const images = [slide1, slide2, slide3]
     const length = images.length
@@ -26,6 +32,11 @@ function Homepage() {
 
     const nextSlide = ()=>{
         setCurrentImg(currentImg === length - 1 ? 0 : currentImg + 1)
+    }
+
+    const showMakeOrder = (data) => {
+        setOrderData(data)
+        setMakeOrder(true)
     }
 
 
@@ -87,25 +98,38 @@ function Homepage() {
                         }
                     </div>
                 </div>
+            </section>
 
-                {/* <div className="recent-plans">
-                    <div className="heading"><span></span> <h3>Recent Builds</h3> <span></span></div>
+            <section className="recent-projects">
+                <div className="recent-plans">
+                    <div className="heading"><span></span> <h3>Products</h3> <span></span></div>
                     
                     <div className="recent-projects-list">
                         {
-                            projects?.map((item, i) =>(
+                            products?.sort((a, b)=> new Date(b.date) > new Date(a.date)).slice(0, 12).map((item, i) =>(
                                 <ProjectGrid
-                                    aos='fade-up'
                                     key={item.id}
-                                    title={item.name}
+                                    title={item.productName}
                                     imgSrc = {item.images[0]}
                                     price = {item.price}
-                                    link = {`designs/${item.id}`}
-                                />
+                                    link = {`liocam-store/${item.id}`}
+                                >
+                                    <i className="fas fa-share-square project-icon"
+                                        onClick={()=>{
+                                            showMakeOrder({
+                                                productName : item.productName,
+                                                productPrice : item.price,
+                                                productId : item.id,
+                                                productCategory : 'N/A',
+                                                productType : 'N/A'
+                                            })
+                                        }}
+                                    ></i>
+                                </ProjectGrid>
                             ))
                         }
                     </div>
-                </div> */}
+                </div>
             </section>
 
             {/* _____________________________________END OF PROJECTS________________________________ */}
@@ -151,6 +175,17 @@ function Homepage() {
                 </div>
             </section>
             {/* _____________________________________END OF WHY CHOSE US________________________________ */}
+            {
+                makeOrder &&
+                <OrderDetails
+                    name = {orderData.productName}
+                    id = {orderData.productId}
+                    category = {orderData.productCategory}
+                    price = {orderData.productPrice}
+                    planType = {orderData.productType}
+                    cancel = {()=>{setMakeOrder(false)}}
+                />
+            }
         </div>
     )
 }

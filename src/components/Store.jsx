@@ -2,8 +2,10 @@ import React, {useState} from 'react'
 import ProjectGrid from './miniComponents/ProjectGrid'
 import OrderDetails from './miniComponents/OrderDetails'
 import {products} from '../samplesToDelete/grid-data'
+import useFetch from '../customHooks/useFetch'
 
 function Store() {
+    const {products:products} = useFetch('products')
 
     const [orderData, setOrderData] = useState({})
     const [makeOrder, setMakeOrder] = useState(false)
@@ -23,14 +25,14 @@ function Store() {
                 products.map(product =>(
                     <ProjectGrid
                         price={product.price}
-                        title={product.name.slice(0, 15) + '...'}
+                        title={product.productName?.slice(0, 15) + '...'}
                         link={`liocam-store/${product.id}`}
-                        imgSrc={product.images[0]}
+                        imgSrc={product?.images[0]}
                     >
                         <i className="fas fa-share-square project-icon"
                             onClick={()=>{
                                 showMakeOrder({
-                                    productName : product.name,
+                                    productName : product.productName,
                                     productPrice : product.price,
                                     productId : product.id,
                                     productCategory : 'N/A',
